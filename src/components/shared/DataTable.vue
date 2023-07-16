@@ -18,16 +18,27 @@ defineProps({
       </div>
     </div>
     <div class="bottom-0 absolute border-t p-4 w-full">
-      <div class="flex justify-between">
+      <div class="flex justify-between text-gray-700">
         <div class="inline-flex space-x-2 text-xs items-center">
           <label>Items per page</label>
-          <select>
+          <select class="border rounded">
             <option v-for="item of 10">{{ item * 10 }}</option>
           </select>
         </div>
         <div class="inline-flex space-x-2 text-xs items-center">
+          <span><i class="fa-solid fa-backward-step"></i></span>
+          <span><i class="fa-solid fa-caret-left"></i></span>
           <label>Page</label>
-          <input type="text" class="w-6 text-center" value="1" />
+          <input
+            type="text"
+            class="w-6 text-center border rounded"
+            value="1"
+            disabled
+          />
+          <label>of</label>
+          <label>1</label>
+          <span><i class="fa-solid fa-caret-right"></i></span>
+          <span><i class="fa-solid fa-forward-step"></i></span>
         </div>
         <div class="text-xs">
           <label>Showing of 0 of 0</label>

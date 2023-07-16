@@ -26,7 +26,8 @@ const users = {
               />
             </div>
           </button>
-          <h1 class="text-5xl font-light text-gray-300">HR</h1>
+          <hr class="border-l h-11" />
+          <h1 class="text-4xl font-light text-gray-300">HR</h1>
         </div>
         <nav class="flex justify-end items-center gap-x-1">
           <div>

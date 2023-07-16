@@ -9,7 +9,7 @@ defineProps({
   <button
     @click="onClick"
     :disabled="disabled"
-    :class="`p-4 rounded-md flex gap-x-2 justify-center items-center ${customClass} ${
+    :class="`p-3 rounded flex gap-x-2 justify-center items-center ${customClass} ${
       disabled ? 'opacity-25' : ''
     }`"
   >

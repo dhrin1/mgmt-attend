@@ -11,6 +11,10 @@ module.exports = {
         brown: {
           primary: "#333333",
         },
+        gray: {
+          primary: "#D5D9DD",
+          secondary: "#979797",
+        },
       },
     },
   },

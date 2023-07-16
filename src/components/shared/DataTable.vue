@@ -1,3 +1,11 @@
+<script setup>
+defineProps({
+  noDataProp: {
+    type: Object,
+    required: false,
+  },
+});
+</script>
 <template>
   <div class="w-full h-full rounded-md border relative">
     <div class="flex justify-center items-center h-full w-full">
@@ -5,8 +13,8 @@
         <div class="relative flex justify-center">
           <img src="@/assets/images/nopayslip.png" class="text-center w-32" />
         </div>
-        <h2 class="font-semibold text-2xl">No attendace logs to show</h2>
-        <p class="text-sm font-light">Get started by searching for the logs</p>
+        <h2 class="font-semibold text-2xl">{{ noDataProp.title }}</h2>
+        <p class="text-sm font-light">{{ noDataProp.msg }}</p>
       </div>
     </div>
     <div class="bottom-0 absolute border-t p-4 w-full">

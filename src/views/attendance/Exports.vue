@@ -7,7 +7,12 @@
       </div>
     </div>
     <div class="h-[80vh]">
-      <DataTable />
+      <DataTable
+        :noDataProp="{
+          title: 'There are no exported items to show on your end.',
+          msg: 'Show for the logs and click Export to generate the file here',
+        }"
+      />
     </div>
   </section>
 </template>

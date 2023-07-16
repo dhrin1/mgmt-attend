@@ -13,9 +13,9 @@ defineProps({
     <Menu as="div" class="relative inline-block text-left z-10">
       <div>
         <MenuButton
-          class="inline-flex w-full justify-center bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+          class="inline-flex items-center w-full justify-center bg-opacity-20 p-3 text-sm font-medium text-gray-primary hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
         >
-          {{ title }}
+          {{ title }}<i class="fa-solid fa-caret-down ml-2"></i>
         </MenuButton>
       </div>
 
@@ -34,7 +34,7 @@ defineProps({
             <MenuItem v-slot="{ active }">
               <router-link
                 :class="[
-                  active ? 'bg-gray-100 text-gray-900    ' : 'text-gray-900',
+                  active ? 'bg-gray-100 text-gray-900' : 'text-gray-900',
                   'group flex w-full items-center rounded-lg px-2 py-2 text-sm',
                 ]"
                 :to="item.path"

@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-7 gap-2">
+  <div class="grid md:grid-cols-5 lg:grid-cols-7 gap-2">
     <div class="col-span-2 h-[90vh] border-r-2">
       <Sidebar />
     </div>

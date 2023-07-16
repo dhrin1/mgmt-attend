@@ -1,6 +1,6 @@
 <script setup>
 import Button from "@/components/shared/forms/Button.vue";
-import { ref, reactive, toRefs, watch } from "vue";
+import { ref, reactive, toRefs, watch, onMounted } from "vue";
 import Select from "@/components/shared/forms/Select.vue";
 import Input from "../shared/forms/Input.vue";
 
@@ -54,24 +54,24 @@ const filtered = [
 import { useRoute } from "vue-router";
 
 const route = useRoute();
-
 const viewFilter = ref(false);
 
-watch(route, () => {
-  const getRouteFilter = () => {
-    let res = route.fullPath
-      .split("/")
-      .map((item) => {
-        return item;
-      })
-      .find((item) => item === "exports");
+const getRouteFilter = () => {
+  let res = route.fullPath
+    .split("/")
+    .map((item) => {
+      return item;
+    })
+    .find((item) => item === "exports");
+  if (typeof res !== "undefined" && res) return false;
+  return true;
+};
 
-    if (typeof res !== "undefined" && res) {
-      return false;
-    } else {
-      return true;
-    }
-  };
+watch([() => route.fullPath, viewFilter], () => {
+  viewFilter.value = getRouteFilter();
+});
+
+onMounted(() => {
   viewFilter.value = getRouteFilter();
 });
 </script>

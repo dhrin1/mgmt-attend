@@ -1,5 +1,5 @@
 <template>
-  <section class="pl-4 pt-4">
+  <section class="pl-0 md:pl-4 pt-4">
     <div class="flex justify-between items-center mb-[15px]">
       <div class="inline-flex space-x-2 items-center">
         <i class="fa-solid fa-calendar text-green-primary"></i>
@@ -10,8 +10,12 @@
           <div class="inline-flex relative m-[1px]" role="group">
             <button @click="onSelect" class="px-2 py-1 text-xs text-white">
               Active Logs
+              <i class="fa-solid fa-check ml-1"></i>
             </button>
-            <button @click="onSelect" class="px-2 py-1 text-xs">
+            <button
+              @click="onSelect"
+              class="px-2 py-1 text-xs bg-white rounded-r text-green-primary"
+            >
               Deleted Logs
             </button>
           </div>

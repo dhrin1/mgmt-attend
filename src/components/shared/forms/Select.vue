@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from "vue";
 defineProps({
   onChange: Function,
   customClass: String,
@@ -7,6 +6,7 @@ defineProps({
   label: String,
   name: String,
   value: String,
+  defaultVal: String,
   items: {
     type: Array,
     required: true,
@@ -28,7 +28,7 @@ defineProps({
         disabled ? 'opacity-25' : ''
       }`"
     >
-      <option selected value="">All</option>
+      <option selected value="">{{ defaultVal }}</option>
       <option
         v-for="item of items"
         :value="item.value"

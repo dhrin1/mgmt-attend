@@ -10,7 +10,7 @@ defineProps({
   <div class="inline-flex items-center ml-2">
     <div class="w-8 h-8">
       <img
-        src="@/assets/images/avatar1.png"
+        :src="users.imgSrc"
         class="w-full h-full object-cover rounded-full"
       />
     </div>
@@ -22,6 +22,7 @@ defineProps({
           { name: 'Settings', path: '/' },
           { name: 'Logout', path: '/' },
         ]"
+        custom-class="relative md:absolute"
       />
     </div>
   </div>

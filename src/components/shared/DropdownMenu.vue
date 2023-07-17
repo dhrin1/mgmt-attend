@@ -2,6 +2,7 @@
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 defineProps({
   title: String,
+  customClass: String,
   items: {
     type: Array,
     required: true,
@@ -18,7 +19,6 @@ defineProps({
           {{ title }}<i class="fa-solid fa-caret-down ml-2"></i>
         </MenuButton>
       </div>
-
       <transition
         enter-active-class="transition duration-100 ease-out"
         enter-from-class="transform scale-95 opacity-0"
@@ -28,7 +28,7 @@ defineProps({
         leave-to-class="transform scale-95 opacity-0"
       >
         <MenuItems
-          class="absolute right-0 mt-2 w-56 p-1 origin-top-right rounded-lg bg-white shadow-lg ring-opacity-5 focus:outline-none"
+          :class="`${customClass} right-0 mt-2 w-56 p-1 origin-top-left rounded-lg bg-white shadow-lg ring-opacity-5 focus:outline-none`"
         >
           <div class="px-1 py-1" v-for="item in items" :key="item.name">
             <MenuItem v-slot="{ active }">

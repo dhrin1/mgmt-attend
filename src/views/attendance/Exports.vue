@@ -1,5 +1,5 @@
 <template>
-  <section class="pl-4 pt-4">
+  <section class="pl-0 md:pl-4 pt-4">
     <div class="flex justify-between items-center mb-[15px]">
       <div class="inline-block">
         <h2 class="text-xl font-semibold">Exported Files</h2>

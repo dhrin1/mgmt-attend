@@ -14,8 +14,8 @@ const items = [
 ];
 
 const fields = reactive({
-  dateFrom: "",
-  dateTo: "",
+  dateFrom: "-",
+  dateTo: "-",
   company: "",
   department: "",
   location: "",
@@ -25,17 +25,19 @@ const fields = reactive({
 const { dateFrom, dateTo, company, department, location, employee } =
   toRefs(fields);
 
-const onSearchClick = () => {
-  window.alert(fields, "Searching...");
-};
-
 const showFilter = ref(true);
 const onShowFilter = () => {
   showFilter.value = !showFilter.value;
 };
 
+let isSearch = ref(false);
+
 const areAllFieldsFilled = computed(() => {
   return Object.values(fields).every((value) => value !== null && value !== "");
+});
+
+watch(fields, () => {
+  areAllFieldsFilled.value;
 });
 
 const onHandleChange = (e) => {
@@ -43,12 +45,16 @@ const onHandleChange = (e) => {
   fields[name] = value;
   if (name === "company") {
     department.value = "";
+    employee.value = "";
+    location.value = "";
   } else if (name === "department") {
     location.value = "";
+    employee.value = "";
   } else if (name === "location") {
     employee.value = "";
   }
-  console.log(areAllFieldsFilled.value);
+
+  isSearch = areAllFieldsFilled.value;
 };
 
 const filtered = [
@@ -81,6 +87,10 @@ watch([() => route.fullPath, viewFilter], () => {
 onMounted(() => {
   viewFilter.value = getRouteFilter();
 });
+
+const onSearchClick = () => {
+  window.alert(fields, "Searching...");
+};
 
 const dropdownData = {
   company: [
@@ -285,12 +295,14 @@ const dropdownData = {
         <Button
           custom-class="bg-green-primary text-white "
           :onClick="onSearchClick"
+          :disabled="!isSearch"
         >
           <i class="fa-solid fa-magnifying-glass"></i>
           Search
         </Button>
         <Button
           custom-class="bg-white text-green-primary border border-green-primary"
+          :disabled="!isSearch"
         >
           <i class="fa-solid fa-download"></i>
           Export

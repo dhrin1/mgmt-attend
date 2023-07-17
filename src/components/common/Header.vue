@@ -200,7 +200,5 @@ const links = [
     ],
   },
 ];
-
-// let mobileMenuOpen = true;
 const mobileMenuOpen = ref(false);
 </script>

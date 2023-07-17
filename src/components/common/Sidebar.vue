@@ -13,14 +13,9 @@ const items = [
   { title: "Exported Files", name: "exports", icon: "fa-solid fa-download" },
 ];
 
-const getCurrDate = () => {
-  const currDate = new Date();
-  return currDate.toISOString().slice(0, 10);
-};
-
 const fields = reactive({
-  dateFrom: getCurrDate(),
-  dateTo: getCurrDate(),
+  dateFrom: "",
+  dateTo: "",
   company: "All",
   department: "All",
   location: "All",
@@ -102,7 +97,7 @@ onMounted(() => {
 
     <div
       v-if="viewFilter"
-      class="inline-block w-full pr-5 py-3 overflow-y-scroll h-[24vw]"
+      class="inline-block w-full pr-5 py-3 overflow-y-auto"
     >
       <div class="inline-block space-y-3 w-full mb-3">
         <div>

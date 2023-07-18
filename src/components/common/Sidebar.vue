@@ -219,7 +219,7 @@ const dropdownData = {
             {{ showFilter ? "Hide All" : "Show All" }}
           </button>
         </div>
-        <div v-if="showFilter" class="inline-block w-full space-y-3">
+        <div v-if="showFilter" class="relative inline-block w-full space-y-3">
           <Select
             label="Company"
             name="company"
@@ -275,7 +275,7 @@ const dropdownData = {
             :items="dropdownData.employee"
           />
         </div>
-        <div v-else class="inline-block space-y-1 w-full text-sm">
+        <div v-else class="inline-block space-y-1 w-full text-sm h-[25vh]">
           <div v-for="filter of filtered" class="flex w-full">
             <div class="w-[8%]">
               <i :class="`fa-solid fa-${filter.icon}`"></i>
@@ -287,13 +287,10 @@ const dropdownData = {
         </div>
       </div>
     </div>
-    <div
-      v-if="viewFilter"
-      class="bottom-0 absolute border-t w-full py-5 pr-0 md:pr-5"
-    >
+    <div v-if="viewFilter" class="border-t w-full py-5 pr-0 md:pr-5">
       <div class="grid gap-y-3">
         <Button
-          custom-class="bg-green-primary text-white "
+          custom-class="bg-green-primary text-white hover:bg-green-600 "
           :onClick="onSearchClick"
           :disabled="!isSearch"
         >
@@ -301,7 +298,7 @@ const dropdownData = {
           Search
         </Button>
         <Button
-          custom-class="bg-white text-green-primary border border-green-primary"
+          custom-class="bg-white text-green-primary border border-green-primary hover:bg-gray-100"
           :disabled="!isSearch"
         >
           <i class="fa-solid fa-download"></i>

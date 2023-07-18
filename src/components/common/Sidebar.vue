@@ -221,7 +221,7 @@ const dropdownData = {
         </div>
         <div
           v-if="showFilter"
-          class="inline-block w-full space-y-3 overflow-y-auto h-[22vh] pt-1"
+          class="inline-block w-full space-y-3 overflow-y-auto h-[23vh] pt-1"
         >
           <Select
             label="Company"

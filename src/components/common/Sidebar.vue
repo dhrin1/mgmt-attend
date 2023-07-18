@@ -219,7 +219,10 @@ const dropdownData = {
             {{ showFilter ? "Hide All" : "Show All" }}
           </button>
         </div>
-        <div v-if="showFilter" class="relative inline-block w-full space-y-3">
+        <div
+          v-if="showFilter"
+          class="relative inline-block w-full space-y-3 overflow-y-auto h-[23vh] pt-1"
+        >
           <Select
             label="Company"
             name="company"
